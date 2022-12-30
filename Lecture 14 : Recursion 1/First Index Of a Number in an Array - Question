@@ -1,0 +1,14 @@
+public class Solution {
+	public static int firstIndex(int input[],int x) {
+			return helper(input, 0, input.length-1,x);
+		}
+		public static int helper(int input[],int si,int ei,int x) {
+			if(si>ei) {
+				return -1;
+			}
+			if(input[si] == x) {
+				return si;
+			}
+			return helper(input,si+1,ei,x);
+		}	
+}
