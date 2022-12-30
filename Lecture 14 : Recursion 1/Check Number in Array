@@ -1,0 +1,15 @@
+public class Solution {
+	
+	public static boolean checkNumber(int input[],int x) {
+		return helper(input, 0, input.length-1,x);
+	}
+	public static boolean helper(int input[], int si, int ei, int x) {
+		if(si>ei) {
+			return false;
+		}
+		if(input[si] == x) {
+			return true;
+		}
+		return helper(input,si+1,ei,x);
+	}
+	}
