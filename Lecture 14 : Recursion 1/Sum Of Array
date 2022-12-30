@@ -1,0 +1,19 @@
+public class Solution {
+	public static int sum(int input[]) {
+		return sum(input, 0 ,input.length-1);	
+	}
+
+	public static int sum(int input[], int si, int ei) {
+		if(input.length == 1){
+		return 	input[0];
+		}
+		if(si>ei){
+			return 0 ;
+		}
+		
+		int smallout = sum(input, si+1, ei);
+		int	total = input[si] + smallout;
+
+		return total;
+	}
+}
