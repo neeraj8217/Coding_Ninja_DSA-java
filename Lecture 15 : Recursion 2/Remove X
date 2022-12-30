@@ -1,0 +1,14 @@
+public class solution {
+	
+		public static String removeX(String input){
+		if(input.length() == 0) {
+			return "";
+		}
+		String smallout = removeX(input.substring(1));
+		if(input.charAt(0) == 'x') {
+			return "" + smallout;
+		}else {
+			return input.charAt(0)+smallout;
+		   }
+	    }
+	}
