@@ -1,0 +1,27 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
+        //System.out.println("Insert at index: "+pos);
+         LinkedListNode<Integer> newNode = new LinkedListNode<>(data);
+        if (pos==0) {
+             // LinkedListNode<Integer> newNode = new LinkedListNode<>(data);
+            newNode.next = head;
+            head = newNode;
+        }
+        else {
+            int count = 0;
+            LinkedListNode<Integer> temp = head;
+        	while ( count < pos-1 && temp != null) {
+            	temp=temp.next;
+                count++;
+        	}
+        	//System.out.println("At node: "+i);
+        	if (temp != null) {
+				// LinkedListNode<Integer> newNode = new LinkedListNode<>(data);
+            	newNode.next = temp.next;
+            	temp.next=newNode;
+        	}
+        }
+        return head;
+	}
+}
