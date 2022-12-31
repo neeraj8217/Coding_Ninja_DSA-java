@@ -1,0 +1,22 @@
+public class Solution {
+	public static int diameterOfBinaryTree(BinaryTreeNode<Integer> root){
+        if (root==null)   {
+            return 0;
+        }
+        return height(root.left) + height(root.right) + 1;
+	}
+    public static int height(BinaryTreeNode<Integer> root) {
+        if (root==null) {
+            return 0;
+        }
+        int left = height(root.left);
+        int right = height(root.right);
+        
+        if(left>right) {
+            return left+1;
+        }
+        else {
+            return right+1;
+        }
+	}
+}
