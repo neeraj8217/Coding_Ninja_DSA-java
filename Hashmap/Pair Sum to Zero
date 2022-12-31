@@ -1,26 +1,33 @@
-import java.util.*;
+import java.util.HashMap;
 public class Solution {
-
-	public static void intersection(int[] arr1, int[] arr2) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+	public static int PairSum(int[] input, int size) {
+        if (size==0)
+            return 0;
         
-       for(int i=0;i<arr1.length;i++){                      // travese arr1 using for loop
-            if(map.containsKey(arr1[i]))	{               //  present arr[i] again then value +1 ;  
-            	map.put(arr1[i],map.get(arr1[i])+1);
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int key:input)    {	
+            if(map.containsKey(key))	{
+            	map.put(key,map.get(key)+1);
         	}
             else {
-                map.put(arr1[i],1);                     // if not presnt again arr[i] then  as it is value 1; 
-             }
+                map.put(key,1);
+            }   
         }
-        Arrays.sort(arr2);
-        for(int i=0;i<arr2.length;i++){             // travarse arr2
-            if (map.containsKey(arr2[i]))  {        // present in map arr2[i] then its value -1;
-                int val = map.get(arr2[i]);             // store its value in val;
-                if (val>0)  {                                       // check if value is 0 oe not;
-                    System.out.print(arr2[i] + " ");    
-                    map.put(arr2[i],val-1);                 // after print update its value-1; 
-                }
+        int countPairs=0;
+        for (Integer i: map.keySet()) {
+            if (map.containsKey(-i) && i!=0) {
+            	countPairs=countPairs+(map.get(i)*map.get(-i));   
             }
-        }   
+        }
+        countPairs=countPairs/2;
+        if (map.containsKey(0)) {
+            int val=map.get(0);
+            countPairs=countPairs+(val*(val-1))/2;
+        }
+        return countPairs;
+	}
+	public static void main(String[] args) {
+		int arr[] = {0,0,2,-2,-2,1,-1,5};
+		System.out.println(PairSum(arr, 8));
 	}
 }
