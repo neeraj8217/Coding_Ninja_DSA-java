@@ -1,0 +1,24 @@
+class Solution{
+    public static void israinbow(int [] arr){
+        // Write your code here
+        int i,j,n=arr.length;
+        int p=0;
+        if(arr[0]!=1){
+             System.out.print("no");
+             return;
+        }
+        for(i=0,j=n-1;i<j;i++,j-- ){
+            if((arr[i]!=arr[j]) || (arr[i+1]-arr[i]>1 )|| ( arr[i+1]-arr[i]<0 ) || (arr[i]<1 )|| (arr[i] > 7)){
+                break;
+            }
+          
+        }
+        if(i<j || arr[i]!=7){
+            System.out.println("no");
+            p=1;
+        } 
+        if(p==0){
+            System.out.print("yes");
+        }
+    }
+}
