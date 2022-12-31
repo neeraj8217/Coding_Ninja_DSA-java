@@ -1,0 +1,12 @@
+
+public class Solution {
+
+	public static int getSum(BinaryTreeNode<Integer> root) {
+	if(root == null){
+		return 0;
+	}	
+	int leftsum = getSum(root.left);
+	int rightsum = getSum(root.right);
+	return root.data + leftsum+rightsum;
+	}
+}
