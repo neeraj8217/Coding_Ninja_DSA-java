@@ -1,0 +1,30 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Solution {
+	public static void main(String[] args) {
+		// Write your code here
+		// Take input and print desired output
+		Scanner sc = new Scanner(System.in);
+		int m = sc.nextInt(), n = sc.nextInt(), result = a(m, n);
+		System.out.print(result);
+	}
+
+	public static int a(int m, int n) {
+		if (m == n) {
+			return 0;
+		}
+		if (m > n) {
+			return m - n;
+		}
+		if (m <= 0 && n > 0) {
+			return -1;
+		}
+		if (n % 2 == 1) {
+			return 1 + a(m, n + 1);
+		} else {
+			return 1 + a(m, n / 2);
+		}
+	}
+}
